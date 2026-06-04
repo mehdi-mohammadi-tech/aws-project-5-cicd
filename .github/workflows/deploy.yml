@@ -31,4 +31,4 @@ jobs:
 
       - name: Deploy to ECS
         run: |
-          aws ecs update-service --cluster project5-cluster --service projekt5-service --force-new-deployment --region eu-central-1
+          aws ecs update-service --cluster project5-cluster --service project5-service --force-new-deployment --region eu-central-1
