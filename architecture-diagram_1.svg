@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 540" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M1 1 L9 5 L1 9 Z" fill="#232F3E"/>
+    </marker>
+    <marker id="arrowOrange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M1 1 L9 5 L1 9 Z" fill="#FF9900"/>
+    </marker>
+    <marker id="arrowPurple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M1 1 L9 5 L1 9 Z" fill="#7B42BC"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="940" height="540" fill="#FFFFFF"/>
+  <rect x="1" y="1" width="938" height="538" fill="none" stroke="#E1E4E8"/>
+
+  <!-- Title -->
+  <text x="470" y="38" text-anchor="middle" font-size="19" font-weight="700" fill="#232F3E">CI/CD Pipeline — Node.js → Docker → ECR → ECS Fargate</text>
+
+  <!-- Developer -->
+  <rect x="40" y="120" width="130" height="60" rx="8" fill="#F6F8FA" stroke="#232F3E" stroke-width="1.5"/>
+  <text x="105" y="145" text-anchor="middle" font-size="14" font-weight="700" fill="#232F3E">Developer</text>
+  <text x="105" y="164" text-anchor="middle" font-size="11" fill="#57606A">git push origin main</text>
+
+  <!-- Arrow Developer -> GitHub -->
+  <line x1="170" y1="150" x2="212" y2="150" stroke="#232F3E" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- GitHub Actions box -->
+  <rect x="220" y="90" width="220" height="190" rx="8" fill="#FFFFFF" stroke="#24292E" stroke-width="1.5"/>
+  <path d="M220 98 a8 8 0 0 1 8 -8 h204 a8 8 0 0 1 8 8 v22 h-220 z" fill="#24292E"/>
+  <text x="330" y="111" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">GitHub Actions</text>
+
+  <g font-size="11.5" fill="#232F3E">
+    <circle cx="242" cy="141" r="9" fill="#F6F8FA" stroke="#24292E"/>
+    <text x="242" y="145" text-anchor="middle" font-size="10" font-weight="700">1</text>
+    <text x="260" y="145">Checkout</text>
+
+    <circle cx="242" cy="169" r="9" fill="#F6F8FA" stroke="#24292E"/>
+    <text x="242" y="173" text-anchor="middle" font-size="10" font-weight="700">2</text>
+    <text x="260" y="173">AWS credentials (Secrets)</text>
+
+    <circle cx="242" cy="197" r="9" fill="#F6F8FA" stroke="#24292E"/>
+    <text x="242" y="201" text-anchor="middle" font-size="10" font-weight="700">3</text>
+    <text x="260" y="201">Login to ECR</text>
+
+    <circle cx="242" cy="225" r="9" fill="#F6F8FA" stroke="#24292E"/>
+    <text x="242" y="229" text-anchor="middle" font-size="10" font-weight="700">4</text>
+    <text x="260" y="229">Build &amp; push Docker image</text>
+
+    <circle cx="242" cy="253" r="9" fill="#F6F8FA" stroke="#24292E"/>
+    <text x="242" y="257" text-anchor="middle" font-size="10" font-weight="700">5</text>
+    <text x="260" y="257">Force new ECS deployment</text>
+  </g>
+
+  <!-- AWS Cloud container -->
+  <rect x="510" y="70" width="390" height="380" rx="12" fill="#FFFDF9" stroke="#FF9900" stroke-width="1.5" stroke-dasharray="7 5"/>
+  <text x="530" y="94" font-size="13" font-weight="700" fill="#FF9900">AWS Cloud — eu-central-1 (Frankfurt)</text>
+
+  <!-- ECR -->
+  <rect x="560" y="110" width="290" height="70" rx="8" fill="#FFF4E5" stroke="#FF9900" stroke-width="1.5"/>
+  <text x="705" y="139" text-anchor="middle" font-size="14" font-weight="700" fill="#232F3E">Amazon ECR</text>
+  <text x="705" y="158" text-anchor="middle" font-size="11" fill="#57606A">private container registry</text>
+
+  <!-- Arrow GitHub -> ECR (docker push) -->
+  <line x1="440" y1="145" x2="552" y2="145" stroke="#232F3E" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="496" y="136" text-anchor="middle" font-size="10.5" fill="#57606A">docker push</text>
+
+  <!-- VPC box -->
+  <rect x="540" y="220" width="330" height="200" rx="10" fill="#FFFFFF" stroke="#8C9196" stroke-width="1.2" stroke-dasharray="5 4"/>
+  <text x="560" y="244" font-size="12" font-weight="700" fill="#57606A">VPC — public subnet</text>
+
+  <!-- Fargate task -->
+  <rect x="580" y="262" width="250" height="118" rx="8" fill="#232F3E"/>
+  <text x="705" y="292" text-anchor="middle" font-size="14" font-weight="700" fill="#FFFFFF">ECS Fargate</text>
+  <text x="705" y="314" text-anchor="middle" font-size="11" fill="#D0D7DE">Node.js container</text>
+  <text x="705" y="332" text-anchor="middle" font-size="11" fill="#D0D7DE">0.25 vCPU / 0.5 GB</text>
+  <text x="705" y="356" text-anchor="middle" font-size="11" fill="#FF9900">Security Group: port 3000 only</text>
+
+  <!-- Arrow ECR -> Fargate (pull image) -->
+  <line x1="705" y1="180" x2="705" y2="254" stroke="#FF9900" stroke-width="2" marker-end="url(#arrowOrange)"/>
+  <text x="716" y="212" font-size="10.5" fill="#FF9900">pull image</text>
+
+  <!-- Arrow GitHub -> Fargate (deploy) -->
+  <path d="M440 240 L500 240 L500 321 L572 321" fill="none" stroke="#232F3E" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="496" y="285" font-size="10.5" fill="#57606A" transform="rotate(-90 496 285)">deploy</text>
+
+  <!-- Terraform -->
+  <rect x="220" y="330" width="220" height="80" rx="8" fill="#FFFFFF" stroke="#7B42BC" stroke-width="1.5"/>
+  <text x="330" y="362" text-anchor="middle" font-size="14" font-weight="700" fill="#7B42BC">Terraform</text>
+  <text x="330" y="384" text-anchor="middle" font-size="11" fill="#57606A">main.tf — all infrastructure as code</text>
+
+  <!-- Arrow Terraform -> AWS -->
+  <line x1="440" y1="370" x2="502" y2="370" stroke="#7B42BC" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrowPurple)"/>
+  <text x="471" y="361" text-anchor="middle" font-size="10.5" fill="#7B42BC">apply</text>
+
+  <!-- Footer -->
+  <text x="470" y="498" text-anchor="middle" font-size="12.5" font-weight="600" fill="#FF9900">~4–5 minutes from git push to running container — zero manual steps</text>
+  <text x="470" y="520" text-anchor="middle" font-size="10.5" fill="#8C9196">ECS rolling deployment: the old task keeps serving until the new one is healthy</text>
+</svg>
